@@ -4,6 +4,7 @@ from road import Road
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from car import AutonomousVehicles, HumanVehicles
 
 ''' Main script to run the traffic jam simulation. '''
 
@@ -48,7 +49,7 @@ def peturb_traffic(starting_positions, n_timesteps_before, n_timesteps_slowed,
     road = Road()
 
     # Add the cars and allow them to run for a while
-    road.add_multiple_cars(starting_positions, starting_velocity)
+    road.add_multiple_cars(starting_positions, starting_velocity, car_class=HumanVehicles)
     road.run_simulation(n_timesteps_before)
 
     # Slow a car in the middle of pack
@@ -64,11 +65,12 @@ def peturb_traffic(starting_positions, n_timesteps_before, n_timesteps_slowed,
     road.run_simulation(n_timesteps_after)
 
     history_position_array = road.get_history_position_array()
-    return history_position_array
+    history_potential_crashes = road.get_history_potential_crashes()
+    return history_position_array, history_potential_crashes
 
-def save_dataframe(history_position_array, save_location='../data/simpleDistanceHistory.csv'):
+def save_dataframe(data, save_location='../data/simpleDistanceHistory.csv'):
     ''' Write the position array to file as a csv. '''
-    distance_dataframe = pd.DataFrame(history_position_array)
+    distance_dataframe = pd.DataFrame(data)
     distance_dataframe.to_csv(save_location)
 
 def start_space_sweep(minimum_space, maximum_space, interval):
@@ -79,11 +81,13 @@ def start_space_sweep(minimum_space, maximum_space, interval):
        maximum_space: The largest starting distance between the cars
        interval: The size of the steps to take between these two extremes
     '''
-    for starting_space in range(80, 240+1, 20):
+    for starting_space in range(80, 81): # range(80, 240+1, 20):
         starting_positions = np.arange(n_cars)*starting_space
-        history_position_array = peturb_traffic(starting_positions, 50, 40, 250)
-        save_name = '../data/starting_space_ ' + str(starting_space) + '.csv'
+        history_position_array, history_potential_crashes = peturb_traffic(starting_positions, 50, 40, 250)
+        save_name = '../data/history_positions_' + str(starting_space) + '.csv'
         save_dataframe(history_position_array, save_name)
+        save_name = '../data/history_crashes_' + str(starting_space) + '.csv'
+        save_dataframe(history_potential_crashes, save_name)
 
 if __name__ == '__main__':
     start_space_sweep(30, 250, 250)

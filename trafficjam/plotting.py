@@ -6,8 +6,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.animation as animation
+from road import Road
 
-def plot(data):
+def plot(positions_data, crashes_data):
     '''Given the position-history table, plot the time evolution of the car positions.
     
     Args:
@@ -20,14 +21,15 @@ def plot(data):
     '''
 
     # Number of cars and time points
-    nCars, nTime = data.shape
+    nCars, nTime = positions_data.shape
 
     # Max and min distances in table
-    max_x = max(data.max())
-    min_x = min(data.min())
+    max_x = max(positions_data.max())
+    min_x = min(positions_data.min())
 
     # Convert data to np.array
-    data = data.values
+    positions_data = positions_data.values
+    crashes_data = crashes_data.values
 
     # Colours for cars
     colours = cm.rainbow(np.linspace(0, 1, nCars))
@@ -52,6 +54,9 @@ def plot(data):
     # Road lines
     axes2.plot([min_x, max_x], [0, 0], lw=2, color="grey")
     axes2.plot([min_x, max_x], [1, 1], lw=2, color="grey")
+    
+    crash_count_text = axes2.text(0, 0, 'Crashes: -1')
+    
     # Cars list
     cars = []
     for index in range(nCars):
@@ -104,17 +109,17 @@ def plot(data):
     # Animation function: This is called sequentially
     def animate(i):
         for lnum,line in enumerate(lines):
-            x = data[lnum, :i]
+            x = positions_data[lnum, :i]
             y = range(i)
             line.set_data(x, y)
             
         for lnum,car in enumerate(cars):
-            x = data[lnum, i]
+            x = positions_data[lnum, i]
             car.set_x(x)
 
         for lnum,vline in enumerate(vlines):
-            a = np.append([0], data[lnum, ])
-            h = a[i+1] - a[i]
+            a = np.append([0], positions_data[lnum, ])
+            h = (a[i+1] - a[i]) / Road.time_precision
             if (h < 10):
                 h = 10
             x = lnum
@@ -124,12 +129,14 @@ def plot(data):
         for lnum,shape in enumerate(carShapes):
             x = shape.get_x() + max_x/nTime
             shape.set_x(x)
-            
-        return lines, cars, vlines, carShapes,
+        
+        crash_count_text.set_text('Crashes: ' + str(crashes_data[i, 0]))
+
+        return lines, cars, vlines, carShapes, crash_count_text
 
     # Call the animator.  blit=True means only re-draw the parts that have changed.
     anim = animation.FuncAnimation(fig, animate, #init_func=init,
-                                   frames=range(nTime), interval=10, blit=False, repeat=True)
+                                   frames=range(nTime), interval=1, blit=False, repeat=True)
 
     return anim
 
@@ -139,20 +146,22 @@ if __name__ == "__main__":
         exit("No input file given to arguments")
 
     # Data file name from args
-    data_file = sys.argv[1]
-    # Example
-    # data_file = "../data/simpleDistanceHistory.csv"
+    starting_space = sys.argv[1]
+    history_positions_file = "../data/history_positions_" + starting_space + ".csv"
+    history_crashes_file = "../data/history_crashes_" + starting_space + ".csv"
+    
 
     # # Save animation if given annoter file name
     save_file = ""
-    if len(sys.argv) >= 3 :
+    if len(sys.argv) >= 3:
         save_file = sys.argv[2]
 
     # Read in data from given cvs file
-    data = pd.read_csv(data_file, header=0, index_col=0)
+    positions_data = pd.read_csv(history_positions_file, header=0, index_col=0)
+    crashes_data = pd.read_csv(history_crashes_file, header=0, index_col=0)
 
     # Create animation with data table values
-    anim = plot(data)
+    anim = plot(positions_data, crashes_data)
     
     # Show animation plot
     # anim.save('../media/animation.gif', writer='imagemagick', fps=60)

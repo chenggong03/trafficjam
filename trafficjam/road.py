@@ -6,6 +6,10 @@ import numpy as np
 
 class Road:
     ''' Handler for the running of the code. '''
+
+    # cars and reactions are updated every this second amount.
+    time_precision = 0.2
+
     def __init__(self):
         self.car_list = []
 
@@ -24,7 +28,7 @@ class Road:
         getPosition = lambda x: x.position
         self.car_list.sort(key=getPosition, reverse=True)
 
-        for timestep in range(total_timesteps):
+        for _ in range(int(total_timesteps / type(self).time_precision)):
             self.update_car_positions()
 
     def add_multiple_cars(self, starting_positions, starting_velocity,
@@ -65,7 +69,7 @@ class Road:
         if car_class is None:
             car_class = Car
 
-        newCar = car_class(starting_position, starting_velocity, **car_kwargs)
+        newCar = car_class(starting_position, starting_velocity, type(self).time_precision, **car_kwargs)
         self.car_list.append(newCar)
 
     def update_car_positions(self):
@@ -75,7 +79,9 @@ class Road:
             if num_car == 0:
                 prev_position = car.update_position(1e6)
             else:
-                prev_position = car.update_position(prev_position)
+                cur_position = car.update_position(prev_position)
+                assert(cur_position <= prev_position)
+                prev_position = cur_position
 
     def get_distance_to_next_car(self, car, prev_position):
         ''' Get the distance to the car in front.
@@ -112,3 +118,13 @@ class Road:
 
         distance_array = np.vstack(distance_array)
         return distance_array
+
+    def get_history_potential_crashes(self):
+
+        crashes_array = []
+        for car in self.car_list:
+            crashes_array.append(car.return_potential_crashes_history())
+
+        crashes_array = np.vstack(crashes_array)
+        crashes_array = crashes_array.sum(axis = 0)
+        return crashes_array
