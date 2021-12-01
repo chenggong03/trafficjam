@@ -147,8 +147,8 @@ if __name__ == "__main__":
 
     # Data file name from args
     starting_space = sys.argv[1]
-    history_positions_file = "../data/history_positions_" + starting_space + ".csv"
-    history_crashes_file = "../data/history_crashes_" + starting_space + ".csv"
+    history_positions_file = "../data/mix/history_positions_" + starting_space + ".csv"
+    history_crashes_file = "../data/mix/history_crashes_" + starting_space + ".csv"
     
 
     # # Save animation if given annoter file name

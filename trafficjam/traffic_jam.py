@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from car import AutonomousVehicles, HumanVehicles
+import random
 
 ''' Main script to run the traffic jam simulation. '''
 
@@ -31,8 +32,7 @@ def simple_run(n_timesteps):
     history_position_array = road.get_history_position_array()
     return history_position_array
 
-def peturb_traffic(starting_positions, n_timesteps_before, n_timesteps_slowed,
-                   n_timesteps_after, slow_car_num=3):
+def peturb_traffic(starting_positions, time_breakdown, slow_car_num=3):
     '''Allow the simulation to run for a given number of steps before suddenly
     slowing one car and resuming the simulation.
 
@@ -46,10 +46,12 @@ def peturb_traffic(starting_positions, n_timesteps_before, n_timesteps_slowed,
     Returns:
         An array containing the positions of all the cars with time.
     '''
+
+    n_timesteps_before, n_timesteps_slowed, n_timesteps_after = time_breakdown
     road = Road()
 
     # Add the cars and allow them to run for a while
-    road.add_multiple_cars(starting_positions, starting_velocity, car_class=HumanVehicles)
+    road.add_multiple_cars(starting_positions, starting_velocity, car_class=AutonomousVehicles)
     road.run_simulation(n_timesteps_before)
 
     # Slow a car in the middle of pack
@@ -64,9 +66,51 @@ def peturb_traffic(starting_positions, n_timesteps_before, n_timesteps_slowed,
     slowed_car.max_velocity = 60
     road.run_simulation(n_timesteps_after)
 
+    # Measure throughput for the first 5000 meters.
+    print('Throughput', road.get_through_vehicle_count(5000) / sum(time_breakdown))
+
     history_position_array = road.get_history_position_array()
     history_potential_crashes = road.get_history_potential_crashes()
     return history_position_array, history_potential_crashes
+
+
+def simulate_AV_HV_mix(starting_positions, AV_percentage):
+    '''Simulate with what percentage of AV on the road and what throughput is.
+    '''
+    
+    assert AV_percentage >= 0 and AV_percentage <= 1
+    AV_car_indices = random.sample(range(len(starting_positions)),
+                                  int(AV_percentage * len(starting_positions)))
+
+    road = Road()
+
+    # Add the cars and allow them to run for a while
+    for i, starting_position in enumerate(starting_positions):
+        car_class = AutonomousVehicles if i in AV_car_indices else HumanVehicles
+        road.add_car(starting_position, starting_velocity, car_class)
+
+    road.run_simulation(200)
+
+
+    # Measure throughput for the first 10000 meters.
+    print('AV_percentage', AV_percentage, 'Throughput', road.get_through_vehicle_count(5000))
+
+    history_position_array = road.get_history_position_array()
+    history_potential_crashes = road.get_history_potential_crashes()
+    return history_position_array, history_potential_crashes
+
+def run_simulation_mix():
+
+    for perc in range(0, 101, 20):
+        perc = perc / 100
+        starting_space = 50
+        starting_positions = np.arange(n_cars)*starting_space
+        history_position_array, history_potential_crashes = simulate_AV_HV_mix(starting_positions, perc)
+        save_name = '../data/mix/history_positions_' + str(perc) + '.csv'
+        save_dataframe(history_position_array, save_name)
+        save_name = '../data/mix/history_crashes_' + str(perc) + '.csv'
+        save_dataframe(history_potential_crashes, save_name)
+
 
 def save_dataframe(data, save_location='../data/simpleDistanceHistory.csv'):
     ''' Write the position array to file as a csv. '''
@@ -81,14 +125,15 @@ def start_space_sweep(minimum_space, maximum_space, interval):
        maximum_space: The largest starting distance between the cars
        interval: The size of the steps to take between these two extremes
     '''
-    for starting_space in range(80, 81): # range(80, 240+1, 20):
+    for starting_space in [80, 200, 211, 212, 400]: # range(80, 81): # range(80, 240+1, 20):
         starting_positions = np.arange(n_cars)*starting_space
-        history_position_array, history_potential_crashes = peturb_traffic(starting_positions, 50, 40, 250)
+        history_position_array, history_potential_crashes = peturb_traffic(starting_positions, [50, 40, 250])
         save_name = '../data/history_positions_' + str(starting_space) + '.csv'
         save_dataframe(history_position_array, save_name)
         save_name = '../data/history_crashes_' + str(starting_space) + '.csv'
         save_dataframe(history_potential_crashes, save_name)
 
 if __name__ == '__main__':
-    start_space_sweep(30, 250, 250)
+    # start_space_sweep(30, 250, 250)
 
+    run_simulation_mix()

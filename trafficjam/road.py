@@ -128,3 +128,6 @@ class Road:
         crashes_array = np.vstack(crashes_array)
         crashes_array = crashes_array.sum(axis = 0)
         return crashes_array
+
+    def get_through_vehicle_count(self, distance):
+        return sum([car.position >= distance for car in self.car_list])

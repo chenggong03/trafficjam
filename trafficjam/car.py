@@ -14,7 +14,6 @@ class Car:
         braking_rate (`float`): Rate of retardation  (braking rate) of the car
         acceleration_rate (`float`): Rate of acceleration of the car
         max_velocity (`float`): Maximum velocity that the car can reach up to
-        desired_velocity (`float`): The velocity of the car that it tries to achieve in normal case
         length (`float`): Length of a car
         stop_space (`float`): Space that the car must have between the car in the front before colliding
         save_dist (`float`): A safe distance the car wants to have with the car in front
@@ -23,19 +22,19 @@ class Car:
         position_history (`list`): History of all position that this car has traveled
 
     """
-    def __init__(self, starting_position, starting_velocity, time_precision, braking_rate = 25, 
-                acceleration_rate = 10, max_velocity = 60, desired_velocity = 40, length = 4,
-                stop_space = 8, safe_dist = 100, reaction_time = 0):
+    def __init__(self, starting_position, starting_velocity, time_precision, braking_rate = 4.5, 
+                acceleration_rate = 3, max_velocity = 26.8, length = 4,
+                stop_space = 8, safe_dist = 100, safe_dist_func = None, reaction_time = 0):
         self.position_history   = [starting_position]
         self.position           = starting_position
         self.velocity           = starting_velocity
         self.braking_rate       = braking_rate # m/s^2
         self.acceleration_rate  = acceleration_rate # m/s^2
         self.max_velocity       = max_velocity # m/s
-        self.desired_velocity   = desired_velocity # m/s
         self.length             = length # meters
         self.stop_space         = stop_space # meters
         self.safe_dist          = safe_dist # meters
+        self.safe_dist_func     = safe_dist_func
         self.time_precision     = time_precision
         self.dist_history       = deque()
         self.reaction_time      = reaction_time
@@ -88,9 +87,9 @@ class Car:
 
             # Reacts to the distance with a delay.
             dist = self.dist_history.popleft()
-            if dist < self.safe_dist:
+            if dist < self.safe_dist_func() if self.safe_dist_func else dist < self.safe_dist:
                 self.decrease_speed(time_step = self.time_precision)
-            if dist > self.safe_dist:
+            if dist > self.safe_dist_func() if self.safe_dist_func else dist > self.safe_dist:
                 self.increase_speed(time_step = self.time_precision)
 
         self.position += self.velocity * self.time_precision
@@ -117,4 +116,4 @@ class HumanVehicles(Car):
     
     def __init__(self, starting_position, starting_velocity, time_precision):
         super().__init__(starting_position, starting_velocity, time_precision,
-                    safe_dist = 100, reaction_time = 1)
+                    safe_dist = 50, reaction_time = 1)
