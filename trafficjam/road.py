@@ -74,14 +74,10 @@ class Road:
 
     def update_car_positions(self):
         ''' Move all the cars at the given time step. '''
+        car_ahead = None
         for num_car, car in enumerate(self.car_list):
-
-            if num_car == 0:
-                prev_position = car.update_position(1e6)
-            else:
-                cur_position = car.update_position(prev_position)
-                assert(cur_position <= prev_position)
-                prev_position = cur_position
+            car.update_position(car_ahead)
+            car_ahead = car
 
     def get_distance_to_next_car(self, car, prev_position):
         ''' Get the distance to the car in front.

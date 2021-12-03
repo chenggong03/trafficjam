@@ -4,7 +4,7 @@ from road import Road
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from car import AutonomousVehicles, HumanVehicles
+from car import AutonomousVehicle, HumanVehicle
 import random
 
 ''' Main script to run the traffic jam simulation. '''
@@ -12,7 +12,7 @@ import random
 n_cars = 70
 n_timesteps = 100
 # starting_space = 100
-starting_velocity = 2
+starting_velocity = 0
 
 def simple_run(n_timesteps):
     ''' Run the simulation for a given number of timesteps.
@@ -51,7 +51,7 @@ def peturb_traffic(starting_positions, time_breakdown, slow_car_num=3):
     road = Road()
 
     # Add the cars and allow them to run for a while
-    road.add_multiple_cars(starting_positions, starting_velocity, car_class=AutonomousVehicles)
+    road.add_multiple_cars(starting_positions, starting_velocity, car_class=AutonomousVehicle)
     road.run_simulation(n_timesteps_before)
 
     # Slow a car in the middle of pack
@@ -86,14 +86,14 @@ def simulate_AV_HV_mix(starting_positions, AV_percentage):
 
     # Add the cars and allow them to run for a while
     for i, starting_position in enumerate(starting_positions):
-        car_class = AutonomousVehicles if i in AV_car_indices else HumanVehicles
+        car_class = AutonomousVehicle if i in AV_car_indices else HumanVehicle
         road.add_car(starting_position, starting_velocity, car_class)
 
     road.run_simulation(200)
 
 
-    # Measure throughput for the first 10000 meters.
-    print('AV_percentage', AV_percentage, 'Throughput', road.get_through_vehicle_count(5000))
+    # Measure throughput for the first 5000 meters.
+    print('AV_percentage', AV_percentage, 'Throughput', road.get_through_vehicle_count(3000))
 
     history_position_array = road.get_history_position_array()
     history_potential_crashes = road.get_history_potential_crashes()
@@ -103,7 +103,7 @@ def run_simulation_mix():
 
     for perc in range(0, 101, 20):
         perc = perc / 100
-        starting_space = 50
+        starting_space = 1
         starting_positions = np.arange(n_cars)*starting_space
         history_position_array, history_potential_crashes = simulate_AV_HV_mix(starting_positions, perc)
         save_name = '../data/mix/history_positions_' + str(perc) + '.csv'
