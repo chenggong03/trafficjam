@@ -4,7 +4,7 @@ from road import Road
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from car import AutonomousVehicle, HumanVehicle
+from car import AutonomousVehicle, HumanVehicle, Car
 import random
 
 ''' Main script to run the traffic jam simulation. '''
@@ -89,11 +89,11 @@ def simulate_AV_HV_mix(starting_positions, AV_percentage):
         car_class = AutonomousVehicle if i in AV_car_indices else HumanVehicle
         road.add_car(starting_position, starting_velocity, car_class)
 
-    road.run_simulation(200)
+    road.run_simulation(100)
 
 
     # Measure throughput for the first 5000 meters.
-    print('AV_percentage', AV_percentage, 'Throughput', road.get_through_vehicle_count(3000))
+    print('AV_percentage', AV_percentage, 'Throughput', road.get_through_vehicle_count(1000))
 
     history_position_array = road.get_history_position_array()
     history_potential_crashes = road.get_history_potential_crashes()
@@ -101,7 +101,7 @@ def simulate_AV_HV_mix(starting_positions, AV_percentage):
 
 def run_simulation_mix():
 
-    for perc in range(0, 101, 20):
+    for perc in range(0, 101, 10):
         perc = perc / 100
         starting_space = 1
         starting_positions = np.arange(n_cars)*starting_space
@@ -110,6 +110,73 @@ def run_simulation_mix():
         save_dataframe(history_position_array, save_name)
         save_name = '../data/mix/history_crashes_' + str(perc) + '.csv'
         save_dataframe(history_potential_crashes, save_name)
+
+
+
+def simulate_AV_HV_mix_merging(starting_positions, AV_percentage, merging_car_count):
+    '''Simulate with what percentage of AV on the road and what throughput is.
+    '''
+    
+    assert AV_percentage >= 0 and AV_percentage <= 1
+    AV_car_indices = random.sample(range(len(starting_positions)),
+                                  int(AV_percentage * len(starting_positions)))
+
+    road = Road()
+
+    # Add the cars and allow them to run for a while
+    for i, starting_position in enumerate(starting_positions):
+        car_class = AutonomousVehicle if i in AV_car_indices else HumanVehicle
+        road.add_car(starting_position, starting_velocity, car_class)
+
+    total_time = 100
+    merge_position = 200
+    # FIXME This is still an estmiate
+
+    merge_interval = None
+    if merging_car_count > 0:
+        merge_interval = (total_time - merge_position / Car(1,2,3).max_velocity) // merging_car_count
+    road.run_simulation(total_time, merge_position = merge_position, merge_interval=merge_interval)
+
+    history_position_array = road.get_history_position_array()
+    history_potential_crashes = road.get_history_potential_crashes()
+
+    # Measure throughput for the first 5000 meters.
+    # print('AV_percentage', AV_percentage, '\tThroughput', road.get_through_vehicle_count(1000), \
+    #     '\tTotal Crashes', history_potential_crashes[-1])
+    return history_position_array, history_potential_crashes, \
+        road.get_through_vehicle_count(1000), history_potential_crashes[-1]
+
+def run_simulation_mix_merging():
+
+    merging_car_counts = [10] # [20, 15, 10, 5, 1, 0]
+    for merging_car_count in merging_car_counts:
+        print()
+        print('merging_car_count', merging_car_count)
+        for perc in range(0, 101, 10):
+            perc = perc / 100
+            starting_space = 1
+            starting_positions = np.arange(n_cars)*starting_space
+
+            throughputs, crashes = [], []
+            num_trials = 1 # 100
+            for _ in range(num_trials):
+                history_position_array, history_potential_crashes, throughput, crash = \
+                    simulate_AV_HV_mix_merging(starting_positions, perc, merging_car_count)
+
+                throughputs.append(throughput)
+                crashes.append(crash)
+
+            throughputs.sort()
+            # throughputs = throughputs[int(len(throughputs) * 0.1) : int(len(throughputs) * 0.9)]
+            crashes.sort()
+            # crashes = crashes[int(len(crashes) * 0.1) : int(len(crashes) * 0.9)]
+            print('AV_percentage', perc, '\tThroughput', sum(throughputs) / len(throughputs), \
+                '\tTotal Crashes', sum(crashes) / len(crashes))
+            save_name = '../data/mix/history_positions_' + str(perc) + '.csv'
+            save_dataframe(history_position_array, save_name)
+            save_name = '../data/mix/history_crashes_' + str(perc) + '.csv'
+            save_dataframe(history_potential_crashes, save_name)
+
 
 
 def save_dataframe(data, save_location='../data/simpleDistanceHistory.csv'):
@@ -136,4 +203,5 @@ def start_space_sweep(minimum_space, maximum_space, interval):
 if __name__ == '__main__':
     # start_space_sweep(30, 250, 250)
 
-    run_simulation_mix()
+    run_simulation_mix_merging()
+    # run_simulation_mix()

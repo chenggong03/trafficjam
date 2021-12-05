@@ -33,14 +33,19 @@ def plot(positions_data, crashes_data):
 
     # Colours for cars
     colours = cm.rainbow(np.linspace(0, 1, nCars))
+
+    # Colors the merging car differently.
+    for i in range(nCars):
+        if positions_data[i][0] < 0:
+            colours[i] = [1.00000000e+00, 1.22464680e-16, 6.12323400e-17, 1.00000000e+00]
         
     # Set up the figure
     fig = plt.figure()
     
     # Subplot axes1: distance/time lines
     axes1 = fig.add_subplot(311, ylim=(0, nTime), xlim=(min_x, max_x))
-    axes1.set_xlabel("Distance")
-    axes1.set_ylabel("Time")
+    axes1.set_xlabel("Distance (m)")
+    axes1.set_ylabel("Time (per 0.2 second)")
     # Lines list
     lines = []
     for index in range(nCars):
@@ -76,9 +81,9 @@ def plot(positions_data, crashes_data):
     carShapes.append(obj)
 
     # Subplot axes3: velocity change lines
-    axes3 = fig.add_subplot(312, ylim=(-10, 60), xlim=(0, nCars))
-    axes3.set_xlabel("Car")
-    axes3.set_ylabel("Velocity")
+    axes3 = fig.add_subplot(312, ylim=(-10, 30), xlim=(0, nCars))
+    axes3.set_xlabel("Car Number (each color represents a different car)")
+    axes3.set_ylabel("Velocity (m/s)")
     axes3.plot([0, nCars], [0, 0], lw=1, color="black")
     # VLines list
     vlines = []

@@ -134,7 +134,7 @@ class AutonomousVehicle(Car):
                 relative_velocity / 2 * (relative_velocity / self.braking_rate)
 
             if isinstance(next_car, AutonomousVehicle):
-                return dist > following_distance * 0.1
+                return dist > following_distance * 0.4
             
             return dist > following_distance
 
@@ -148,15 +148,13 @@ class HumanVehicle(Car):
             if not next_car:
                 return True
 
-            d0 = 2.048
+            d0 = 1.524
             relative_velocity = self.velocity - next_car.velocity + \
                 next_car.braking_rate * next_car.reaction_time
             following_distance = d0 + relative_velocity * self.reaction_time + \
                 relative_velocity / 2 * (relative_velocity / self.braking_rate)
 
-            return following_distance
-
-            return dist > 1.3 * self.velocity + 3.048 # FIMXE
+            return dist > following_distance
 
         super().__init__(starting_position, starting_velocity, time_precision,
                     can_speed_up_func=can_speed_up_func, reaction_time = 0.5)
