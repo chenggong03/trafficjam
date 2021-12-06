@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 from collections import deque
+from os import cpu_count
+from typing import _SpecialForm
 
 ''' Container for the car. '''
 
@@ -23,7 +25,7 @@ class Car:
 
     """
     def __init__(self, starting_position, starting_velocity, time_precision, braking_rate = 4.5, 
-                acceleration_rate = 3, max_velocity = 26.8, length = 4,
+                acceleration_rate = 0.7, max_velocity = 26.8, length = 4,
                 safe_dist = 100, can_speed_up_func = None, reaction_time = 0):
         self.position_history   = [starting_position]
         self.position           = starting_position
@@ -40,17 +42,23 @@ class Car:
         self.is_reacting        = False
         self.potential_crashes_history = [0]
 
-    def increase_speed(self, time_step):
-        self.velocity += self.acceleration_rate * time_step
+    def increase_speed(self):
+
+        # self.velocity / (-26.8/2.3) + 3.0
+        # 0 => 3.0
+        # 26.8 => 0.7
+        
+        accel = self.velocity / (-26.8/2.3) + 3.0
+        self.velocity += accel * self.time_precision
         if self.velocity > self.max_velocity:
             self.velocity = self.max_velocity
 
-    def decrease_speed(self, time_step):
-        self.velocity -= self.braking_rate * time_step
+    def decrease_speed(self):
+        self.velocity -= self.braking_rate * self.time_precision
         if self.velocity < 0:
             self.velocity = 0
 
-    def update_position(self, next_car):
+    def update_position(self, next_car, ghost=False, debug=False):
         '''Get the new position of the car after a single time step of time_precision, based on the
         position of the car in front.
 
@@ -80,8 +88,10 @@ class Car:
         if dist < 0:
 
             # This is an abrupt stop, otherwise it is just waiting
-            if self.velocity != 0:
+            if not ghost and self.velocity != 0:
                 self.potential_crashes_history[-1] += 1
+                # print(position_of_next_car, self.position, self.length)
+                # print('crashed at dist', dist, 'velocity', self.velocity)
                 self.velocity = 0
                 # FIXME this is bad practice based on the assumption that every car
                 # has the same length, and also it is hardcoding not object oriented.
@@ -101,9 +111,11 @@ class Car:
                 speed_up = dist > self.safe_dist
 
             if not speed_up:
-                self.decrease_speed(time_step = self.time_precision)
+                self.decrease_speed()
+                if debug: print('decreasing')
             else:
-                self.increase_speed(time_step = self.time_precision)
+                self.increase_speed()
+                if debug: print('increasing')
 
         self.position += self.velocity * self.time_precision
         self.position_history.append(self.position)
@@ -125,6 +137,9 @@ class AutonomousVehicle(Car):
 
         def can_speed_up_func(dist, next_car):
 
+            if dist <= 0:
+                return False
+
             if not next_car:
                 return True
             d0 = 3.048
@@ -132,19 +147,21 @@ class AutonomousVehicle(Car):
                 next_car.braking_rate * next_car.reaction_time
             following_distance = d0 + relative_velocity * self.reaction_time + \
                 relative_velocity / 2 * (relative_velocity / self.braking_rate)
-
             if isinstance(next_car, AutonomousVehicle):
-                return dist > following_distance * 0.4
+                return dist > following_distance * 0.3
             
             return dist > following_distance
 
         super().__init__(starting_position, starting_velocity, time_precision,
-                    can_speed_up_func=can_speed_up_func, reaction_time = 0.2)
+                    can_speed_up_func=can_speed_up_func, reaction_time = 0 #FIXME)
 
 class HumanVehicle(Car):
     
     def __init__(self, starting_position, starting_velocity, time_precision):
         def can_speed_up_func(dist, next_car):
+            if dist <= 0:
+                return False
+
             if not next_car:
                 return True
 
@@ -158,3 +175,14 @@ class HumanVehicle(Car):
 
         super().__init__(starting_position, starting_velocity, time_precision,
                     can_speed_up_func=can_speed_up_func, reaction_time = 0.5)
+
+# eng
+# - 2 second headsup on merging
+# - give more stats than just the mean
+
+# spec
+# - 10min video
+# - report
+
+# CPT
+# 800 words essay by 5pm

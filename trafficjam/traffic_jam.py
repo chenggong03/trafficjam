@@ -132,7 +132,7 @@ def simulate_AV_HV_mix_merging(starting_positions, AV_percentage, merging_car_co
     merge_position = 200
     # FIXME This is still an estmiate
 
-    merge_interval = None
+    merge_interval = 0
     if merging_car_count > 0:
         merge_interval = (total_time - merge_position / Car(1,2,3).max_velocity) // merging_car_count
     road.run_simulation(total_time, merge_position = merge_position, merge_interval=merge_interval)
@@ -148,7 +148,7 @@ def simulate_AV_HV_mix_merging(starting_positions, AV_percentage, merging_car_co
 
 def run_simulation_mix_merging():
 
-    merging_car_counts = [10] # [20, 15, 10, 5, 1, 0]
+    merging_car_counts = [20]#, 15, 10, 5, 1, 0]
     for merging_car_count in merging_car_counts:
         print()
         print('merging_car_count', merging_car_count)
@@ -158,7 +158,7 @@ def run_simulation_mix_merging():
             starting_positions = np.arange(n_cars)*starting_space
 
             throughputs, crashes = [], []
-            num_trials = 1 # 100
+            num_trials = 10
             for _ in range(num_trials):
                 history_position_array, history_potential_crashes, throughput, crash = \
                     simulate_AV_HV_mix_merging(starting_positions, perc, merging_car_count)
@@ -167,11 +167,11 @@ def run_simulation_mix_merging():
                 crashes.append(crash)
 
             throughputs.sort()
-            # throughputs = throughputs[int(len(throughputs) * 0.1) : int(len(throughputs) * 0.9)]
+            throughputs = throughputs[int(len(throughputs) * 0.1) : int(len(throughputs) * 0.9)]
             crashes.sort()
-            # crashes = crashes[int(len(crashes) * 0.1) : int(len(crashes) * 0.9)]
+            crashes = crashes[int(len(crashes) * 0.1) : int(len(crashes) * 0.9)]
             print('AV_percentage', perc, '\tThroughput', sum(throughputs) / len(throughputs), \
-                '\tTotal Crashes', sum(crashes) / len(crashes))
+                '\tHard Stops', sum(crashes) / len(crashes))
             save_name = '../data/mix/history_positions_' + str(perc) + '.csv'
             save_dataframe(history_position_array, save_name)
             save_name = '../data/mix/history_crashes_' + str(perc) + '.csv'

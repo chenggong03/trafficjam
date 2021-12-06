@@ -124,7 +124,7 @@ def plot(positions_data, crashes_data):
 
         for lnum,vline in enumerate(vlines):
             a = np.append([0], positions_data[lnum, ])
-            h = (a[i+1] - a[i]) / Road.time_precision
+            h = (a[i+1] - a[i]) / Road().time_precision
             if (h < 10):
                 h = 10
             x = lnum

@@ -8,25 +8,44 @@ from car import AutonomousVehicle
 class Road:
     ''' Handler for the running of the code. '''
 
-    # cars and reactions are updated every this second amount.
-    time_precision = 0.2
-
     def __init__(self):
         self.car_list = []
         self.position_update_count = None
+        self.car_getting_merged_in_front = None
+        self.time_precision = 0.2 # cars and reactions are updated every this second amount.
+        self.preparation_time = 0.4 # time allowed for the car behind to prepare for the merging car. # FIXME this should be 0.2.
 
-    def run_simulation(self, total_timesteps, merge_position=None, merge_interval=10):
+    def run_simulation(self, total_timesteps, merge_position=None, merge_interval=0):
 
         # Sort the cars by position
         getPosition = lambda x: x.position
         self.car_list.sort(key=getPosition, reverse=True)
         
-        self.position_update_count = int(total_timesteps / type(self).time_precision) + 1
+        merge_preparation_countdown = -999
+        self.position_update_count = int(total_timesteps / self.time_precision) + 1
         for time_index in range(self.position_update_count - 1):
-            to_merge = False
-            if merge_interval:
-                to_merge = time_index * type(self).time_precision % merge_interval == 0
-            self.update_car_positions(merge_position=merge_position if to_merge else None)
+            if merge_interval <= 0:
+                self.update_car_positions()
+                continue
+
+            # Prepares to merge.
+            if time_index * self.time_precision % merge_interval == 0:
+                merge_preparation_countdown = self.preparation_time / self.time_precision
+                self.update_car_positions(merge_position_prepare_to_merge=merge_position, merging=False)
+                # print('prepare to merge', merge_position)
+
+            # Commences merging since preparation is over.
+            elif merge_preparation_countdown == 0:
+                self.update_car_positions(merge_position_prepare_to_merge=None, merging=True)
+                merge_preparation_countdown = -999
+        
+            else:
+                self.update_car_positions()
+
+            if merge_preparation_countdown != -999:
+                merge_preparation_countdown -= 1
+
+                
 
     def add_multiple_cars(self, starting_positions, starting_velocity,
                           car_class=None, **car_kwargs):
@@ -66,48 +85,67 @@ class Road:
         if car_class is None:
             car_class = Car
 
-        newCar = car_class(starting_position, starting_velocity, type(self).time_precision, **car_kwargs)
+        newCar = car_class(starting_position, starting_velocity, self.time_precision, **car_kwargs)
         self.car_list.append(newCar)
 
 
-
-    def merge_car(self, i, starting_position, starting_velocity, car_class=None):
-        ''' Merge a car to the car list.
-
-        Args:
-            starting_velocity
-            starting_position 
-            car_class: Car like object to use, default to the simple Car class
-            **car_kwargs: extra keywords to give to cars
-        '''
-        if car_class is None:
-            car_class = Car
-
-        newCar = car_class(starting_position, starting_velocity, type(self).time_precision)
-        self.car_list.insert(i, newCar)
-
-    def update_car_positions(self, merge_position=None):
+    def update_car_positions(self, merge_position_prepare_to_merge=None, merging=False):
         ''' Move all the cars at the given time step. '''
         car_ahead = None
         num_car = 0
         while num_car < len(self.car_list):
             car = self.car_list[num_car]
-            if merge_position and car_ahead and \
-                car_ahead.position > merge_position and car.position <= merge_position:
-                
-                # Merge a new autonomous vehicle in following the speed of the car ahead.
+            
+            if self.car_getting_merged_in_front == car:
+                if merging:
+                    
+                    
+                    self.car_getting_merged_in_front = None
+                    # Merge a new autonomous vehicle in following the speed of the car ahead.
+                    self.car_list.insert(num_car, self.merging_car)
+                    # print('merge ahead car', car_ahead.position, car_ahead.velocity)
+                    car_ahead = self.car_list[num_car]
+                    # print('merging car   ', car_ahead.position, car_ahead.velocity)
+                    # print('you got merged', car.position, car.velocity)
+
+                    self.merging_car.update_position(car_ahead)
+                    num_car += 1
+                    # print('merged')
+
+                else:
+                    assert self.merging_car
+                    
+                    
+                    car.update_position(self.merging_car, ghost=True)#, debug=True)
+
+                    self.merging_car.velocity = car_ahead.velocity * 0.9
+                    self.merging_car.position = car.position + \
+                        (car_ahead.position - car.position) * 0.5 # self.merge_dist_ratio
+
+
+                    # print('updating---')
+                    # print('car      pos', car.position)
+                    # print('merg car pos', self.merging_car.position)
+                    # print('car_ahea pos', car_ahead.position if car_ahead else None)
+
+                    car_ahead = car
+                    num_car += 1
+                    continue
+
+            # Tells the car to decelerate to prepare for the merging car in front.
+            if merge_position_prepare_to_merge and car_ahead and \
+                car_ahead.position > merge_position_prepare_to_merge and \
+                car.position <= merge_position_prepare_to_merge:
                 # TODO make the merging vehicle either AV or HV based on the AV_percentage.
-                self.merge_car(
-                    num_car, # This should be right since list is backwards.
-                    starting_position=merge_position,
-                    starting_velocity=car_ahead.velocity * 0.8,
-                    car_class=AutonomousVehicle,
-                )
-                # print('merge ahead car', car_ahead.position, car_ahead.velocity)
-                car_ahead = self.car_list[num_car]
-                # print('merging car   ', car_ahead.position, car_ahead.velocity)
-                # print('you got merged', car.position, car.velocity)
-                num_car += 1
+                self.merging_car = AutonomousVehicle(merge_position_prepare_to_merge, \
+                    car_ahead.velocity * 0.9, self.time_precision)
+                self.car_getting_merged_in_front = car
+                # self.merge_dist_ratio = (merge_position_prepare_to_merge - car.position) / \
+                #     (car_ahead.position - car.position)
+                self.merge_dist_ratio = 0.5
+                # print('merge_dist_ratio', self.merge_dist_ratio)
+
+
             car.update_position(car_ahead)
             car_ahead = car
             num_car += 1
