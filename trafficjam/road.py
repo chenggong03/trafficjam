@@ -13,7 +13,7 @@ class Road:
         self.position_update_count = None
         self.car_getting_merged_in_front = None
         self.time_precision = 0.2 # cars and reactions are updated every this second amount.
-        self.preparation_time = 0.4 # time allowed for the car behind to prepare for the merging car. # FIXME this should be 0.2.
+        self.preparation_time = 0.4 # time allowed for the car behind to prepare for the merging car.
 
     def run_simulation(self, total_timesteps, merge_position=None, merge_interval=0):
 
@@ -30,18 +30,21 @@ class Road:
 
             # Prepares to merge.
             if time_index * self.time_precision % merge_interval == 0:
-                merge_preparation_countdown = self.preparation_time / self.time_precision
+                merge_preparation_countdown = round(self.preparation_time / self.time_precision)
                 self.update_car_positions(merge_position_prepare_to_merge=merge_position, merging=False)
-                # print('prepare to merge', merge_position)
+                print('prepares to merge')
 
             # Commences merging since preparation is over.
             elif merge_preparation_countdown == 0:
                 self.update_car_positions(merge_position_prepare_to_merge=None, merging=True)
                 merge_preparation_countdown = -999
+                print('commence merging')
         
             else:
                 self.update_car_positions()
 
+            # print('merge_preparation_countdown', merge_preparation_countdown)
+            assert merge_preparation_countdown == -999 or merge_preparation_countdown >= 0
             if merge_preparation_countdown != -999:
                 merge_preparation_countdown -= 1
 
@@ -93,7 +96,8 @@ class Road:
         ''' Move all the cars at the given time step. '''
         car_ahead = None
         num_car = 0
-        while num_car < len(self.car_list):
+        l = len(self.car_list)
+        while num_car < l:
             car = self.car_list[num_car]
             
             if self.car_getting_merged_in_front == car:
@@ -103,30 +107,34 @@ class Road:
                     self.car_getting_merged_in_front = None
                     # Merge a new autonomous vehicle in following the speed of the car ahead.
                     self.car_list.insert(num_car, self.merging_car)
+                    l += 1
+                    if self.merging_car.update_position(car_ahead):#      car m carahead
+                        print('crash at', num_car)
+                    # print('merging---')
                     # print('merge ahead car', car_ahead.position, car_ahead.velocity)
-                    car_ahead = self.car_list[num_car]
+                    car_ahead = self.car_list[num_car] # which is the newly merged car.
                     # print('merging car   ', car_ahead.position, car_ahead.velocity)
                     # print('you got merged', car.position, car.velocity)
+                    # print('merging---end')
 
-                    self.merging_car.update_position(car_ahead)
                     num_car += 1
-                    # print('merged')
 
                 else:
                     assert self.merging_car
-                    
-                    
-                    car.update_position(self.merging_car, ghost=True)#, debug=True)
 
                     self.merging_car.velocity = car_ahead.velocity * 0.9
                     self.merging_car.position = car.position + \
                         (car_ahead.position - car.position) * 0.5 # self.merge_dist_ratio
+                    
+                    if car.update_position(self.merging_car, ghost=True):#, debug=True)
+                        print('crash at', num_car)
 
 
-                    # print('updating---')
+                    # print('updating merge car as well---') 
                     # print('car      pos', car.position)
                     # print('merg car pos', self.merging_car.position)
                     # print('car_ahea pos', car_ahead.position if car_ahead else None)
+                    # print('updating---end')
 
                     car_ahead = car
                     num_car += 1
@@ -146,7 +154,9 @@ class Road:
                 # print('merge_dist_ratio', self.merge_dist_ratio)
 
 
-            car.update_position(car_ahead)
+            if car.update_position(car_ahead):
+                print('crash at', num_car)
+
             car_ahead = car
             num_car += 1
 

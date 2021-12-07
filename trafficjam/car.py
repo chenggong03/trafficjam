@@ -68,9 +68,10 @@ class Car:
             position_of_next_car: distance to the next car
 
         Returns:
-            The position of the car after the next time step
+            Whether it crashed.
 
         '''
+        crashed = False
 
         position_of_next_car = next_car.position if next_car else 1e6
         
@@ -90,12 +91,13 @@ class Car:
             # This is an abrupt stop, otherwise it is just waiting
             if not ghost and self.velocity != 0:
                 self.potential_crashes_history[-1] += 1
-                # print(position_of_next_car, self.position, self.length)
-                # print('crashed at dist', dist, 'velocity', self.velocity)
+                print('crashed at dist', dist, 'velocity', self.velocity, 'next_car.velocity', next_car.velocity)
+                print('dist = ...', position_of_next_car, self.position, self.length)
                 self.velocity = 0
                 # FIXME this is bad practice based on the assumption that every car
                 # has the same length, and also it is hardcoding not object oriented.
                 self.position = position_of_next_car - self.length
+                crashed = True
 
             self.dist_history.popleft()
             
@@ -119,7 +121,7 @@ class Car:
 
         self.position += self.velocity * self.time_precision
         self.position_history.append(self.position)
-        return self.position
+        return crashed
 
     def return_position_array(self):
         ''' Give history of the array for plotting.
@@ -153,7 +155,7 @@ class AutonomousVehicle(Car):
             return dist > following_distance
 
         super().__init__(starting_position, starting_velocity, time_precision,
-                    can_speed_up_func=can_speed_up_func, reaction_time = 0 #FIXME)
+                    can_speed_up_func=can_speed_up_func, reaction_time = 0) #FIXME
 
 class HumanVehicle(Car):
     
@@ -174,7 +176,7 @@ class HumanVehicle(Car):
             return dist > following_distance
 
         super().__init__(starting_position, starting_velocity, time_precision,
-                    can_speed_up_func=can_speed_up_func, reaction_time = 0.5)
+                    can_speed_up_func=can_speed_up_func, reaction_time = 1)
 
 # eng
 # - 2 second headsup on merging

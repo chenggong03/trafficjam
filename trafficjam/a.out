@@ -1,0 +1,828 @@
+
+merging_car_count 5
+merge_interval 18.0
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 0.0 	Throughput 44.0 	Hard Stops 0.0
+merge_interval 18.0
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 0.1 	Throughput 44.0 	Hard Stops 0.0
+merge_interval 18.0
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 0.2 	Throughput 54.0 	Hard Stops 0.0
+merge_interval 18.0
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+crashed at dist -0.33045693584301716 velocity 2.1050216846071494 next_car.velocity 2.898767461548603
+dist = ... 201.75933263600425 198.08978957184726 4
+crash at 32
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 0.3 	Throughput 59.0 	Hard Stops 1.0
+merge_interval 18.0
+prepares to merge
+crashed at dist -1.3230895522387982 velocity 1.070731343283582 next_car.velocity 0.2897014925373135
+dist = ... 200.41588059701493 197.73897014925373 4
+crash at 30
+crashed at dist -2.824119402985076 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 196.41588059701493 195.24 4
+crash at 31
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+crashed at dist -0.19992691672317164 velocity 18.352618019022277 next_car.velocity 16.892819505930678
+dist = ... 209.96878672630004 206.1687136430232 4
+crash at 50
+crashed at dist -0.9642657369787742 velocity 11.7620008199516 next_car.velocity 0
+dist = ... 205.96878672630004 202.9330524632788 4
+crash at 51
+crashed at dist -2.6109656672738026 velocity 14.1676150814196 next_car.velocity 0
+dist = ... 201.96878672630004 200.57975239357384 4
+crash at 52
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 201.96878672630004 198.08878672630004 4
+crash at 52
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 201.96878672630004 198.08878672630004 4
+crash at 52
+crashed at dist -0.4107797499409571 velocity 12.96742916408676 next_car.velocity 0
+dist = ... 197.96878672630004 194.379566476241 4
+crash at 53
+crashed at dist -2.874971075246208 velocity 17.737610396307716 next_car.velocity 0
+dist = ... 193.96878672630004 192.84375780154625 4
+crash at 54
+crashed at dist -1.9909912186618897 velocity 18.917711113386016 next_car.velocity 0
+dist = ... 189.96878672630004 187.95977794496193 4
+crash at 55
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 189.96878672630004 186.08878672630004 4
+crash at 55
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 189.96878672630004 186.08878672630004 4
+crash at 55
+crashed at dist -0.05070549248790712 velocity 17.737610396307716 next_car.velocity 12.067429164086759
+dist = ... 181.7930523090584 177.8437578015463 4
+crash at 57
+crashed at dist -2.770267858580752 velocity 18.017711113386017 next_car.velocity 0
+dist = ... 177.7930523090584 176.56332016763915 4
+crash at 58
+crashed at dist -2.057751415575723 velocity 11.167429164086759 next_car.velocity 0
+dist = ... 185.96878672630004 184.02653814187576 4
+crash at 56
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 177.7930523090584 173.9130523090584 4
+crash at 58
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 177.7930523090584 173.9130523090584 4
+crash at 58
+crashed at dist -0.913746117083349 velocity 12.367615081419599 next_car.velocity 0
+dist = ... 173.7930523090584 170.70679842614175 4
+crash at 59
+crashed at dist -2.537755749182679 velocity 14.752618019022279 next_car.velocity 0
+dist = ... 169.7930523090584 168.33080805824108 4
+crash at 60
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 169.7930523090584 165.9130523090584 4
+crash at 60
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 169.7930523090584 165.9130523090584 4
+crash at 60
+crashed at dist -0.3477862840630337 velocity 13.562648553902699 next_car.velocity 0
+dist = ... 165.7930523090584 162.14083859312143 4
+crash at 61
+crashed at dist -1.4857496510109627 velocity 15.937610396307717 next_car.velocity 0
+dist = ... 161.7930523090584 159.27880196006936 4
+crash at 62
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 161.7930523090584 157.9130523090584 4
+crash at 62
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 161.7930523090584 157.9130523090584 4
+crash at 62
+crashed at dist -0.8803159948435564 velocity 12.662648553902699 next_car.velocity 0
+dist = ... 157.7930523090584 154.67336830390195 4
+crash at 63
+crashed at dist -2.4932717302725393 velocity 15.037610396307716 next_car.velocity 0
+dist = ... 153.7930523090584 152.28632403933094 4
+crash at 64
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 153.7930523090584 149.9130523090584 4
+crash at 64
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 153.7930523090584 149.9130523090584 4
+crash at 64
+crashed at dist -0.30827935298708553 velocity 13.852618019022279 next_car.velocity 0
+dist = ... 149.7930523090584 146.10133166204548 4
+crash at 65
+crashed at dist -1.4373523039351426 velocity 16.21771111338602 next_car.velocity 0
+dist = ... 145.7930523090584 143.23040461299354 4
+crash at 66
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 145.7930523090584 141.9130523090584 4
+crash at 66
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 145.7930523090584 141.9130523090584 4
+crash at 66
+crashed at dist -1.007838182219018 velocity 8.767615081419597 next_car.velocity 0
+dist = ... 141.7930523090584 138.8008904912774 4
+crash at 67
+crashed at dist -0.007838182218989687 velocity 8.767615081419597 next_car.velocity 0
+dist = ... 137.7930523090584 133.80089049127739 4
+crash at 68
+crashed at dist -1.3093265605959914 velocity 12.052618019022278 next_car.velocity 0
+dist = ... 133.7930523090584 131.1023788696544 4
+crash at 69
+crashed at dist -3.384436749289563 velocity 14.41771111338602 next_car.velocity 0
+dist = ... 129.7930523090584 129.17748905834796 4
+crash at 70
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 129.7930523090584 125.9130523090584 4
+crash at 70
+crashed at dist -2.384436749289563 velocity 14.41771111338602 next_car.velocity 0
+dist = ... 125.7930523090584 124.17748905834796 4
+crash at 71
+crashed at dist -3.4961840391185603 velocity 16.76357197112152 next_car.velocity 0
+dist = ... 121.7930523090584 121.28923634817696 4
+crash at 72
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 121.7930523090584 117.9130523090584 4
+crash at 72
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 121.7930523090584 117.9130523090584 4
+crash at 72
+crashed at dist -0.38443674928954863 velocity 14.41771111338602 next_car.velocity 0
+dist = ... 117.7930523090584 114.17748905834794 4
+crash at 73
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 0.4 	Throughput 56.0 	Hard Stops 43.0
+merge_interval 18.0
+prepares to merge
+crashed at dist -1.6200000000000045 velocity 0.6000000000000001 next_car.velocity 0.0
+dist = ... 197.62 195.24 4
+crash at 31
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 0.5 	Throughput 74.0 	Hard Stops 1.0
+merge_interval 18.0
+prepares to merge
+crashed at dist -1.263089552238796 velocity 1.070731343283582 next_car.velocity 0.2897014925373135
+dist = ... 200.41588059701493 197.67897014925373 4
+crash at 30
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+crashed at dist -0.31963076908471066 velocity 25.000000000000004 next_car.velocity 20.871852077454403
+dist = ... 375.43906330279424 371.75869407187895 4
+crash at 58
+crashed at dist -4.62375017206989 velocity 25.900000000000002 next_car.velocity 0
+dist = ... 371.43906330279424 372.06281347486413 4
+crash at 59
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 371.43906330279424 367.55906330279424 4
+crash at 59
+crashed at dist -2.002423887542136 velocity 19.30435037344337 next_car.velocity 0.6000000000000001
+dist = ... 367.67906330279425 365.6814871903364 4
+crash at 60
+crashed at dist -0.3478695750548013 velocity 23.200000000000006 next_car.velocity 0
+dist = ... 364.09494389980915 360.44281347486395 4
+crash at 61
+crashed at dist -1.267869575054874 velocity 26.8 next_car.velocity 0
+dist = ... 360.09494389980915 357.362813474864 4
+crash at 62
+crashed at dist -0.14786957505486953 velocity 26.8 next_car.velocity 0
+dist = ... 356.09494389980915 352.242813474864 4
+crash at 63
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 356.09494389980915 352.21494389980916 4
+crash at 63
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 356.09494389980915 352.21494389980916 4
+crash at 63
+crashed at dist -0.7182809193743083 velocity 21.392009453599584 next_car.velocity 0
+dist = ... 352.09494389980915 348.81322481918346 4
+crash at 64
+crashed at dist -3.6278695750548877 velocity 26.8 next_car.velocity 0
+dist = ... 348.09494389980915 347.72281347486404 4
+crash at 65
+crashed at dist -2.507869575054883 velocity 26.8 next_car.velocity 0
+dist = ... 344.09494389980915 342.60281347486404 4
+crash at 66
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 344.09494389980915 340.21494389980916 4
+crash at 66
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 344.09494389980915 340.21494389980916 4
+crash at 66
+crashed at dist -0.14854761487208634 velocity 19.44942495658576 next_car.velocity 0
+dist = ... 340.09494389980915 336.24349151468124 4
+crash at 67
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 340.09494389980915 336.21494389980916 4
+crash at 67
+crashed at dist -0.8166828100942212 velocity 20.492009453599586 next_car.velocity 0
+dist = ... 336.09494389980915 332.9116267099034 4
+crash at 68
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 336.09494389980915 332.21494389980916 4
+crash at 68
+crashed at dist -2.1678695750547945 velocity 22.300000000000008 next_car.velocity 0
+dist = ... 332.09494389980915 330.26281347486395 4
+crash at 69
+crashed at dist -3.9878695750549014 velocity 26.8 next_car.velocity 0
+dist = ... 328.09494389980915 328.08281347486405 4
+crash at 70
+crashed at dist -2.867869575054897 velocity 26.8 next_car.velocity 0
+dist = ... 324.09494389980915 322.96281347486405 4
+crash at 71
+prepares to merge
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 324.09494389980915 320.21494389980916 4
+crash at 71
+commence merging
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 324.09494389980915 320.21494389980916 4
+crash at 71
+crashed at dist -3.4478695750547104 velocity 21.40000000000001 next_car.velocity 0
+dist = ... 320.09494389980915 319.54281347486386 4
+crash at 72
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 0.6 	Throughput 73.0 	Hard Stops 25.0
+merge_interval 18.0
+prepares to merge
+crashed at dist -1.3230895522387982 velocity 1.070731343283582 next_car.velocity 0.2897014925373135
+dist = ... 200.41588059701493 197.73897014925373 4
+crash at 30
+crashed at dist -2.824119402985076 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 196.41588059701493 195.24 4
+crash at 31
+commence merging
+crashed at dist -0.019949521195925968 velocity 0.7490124976563511 next_car.velocity 0
+dist = ... 107.41859311293344 103.43854263412936 4
+crash at 50
+crashed at dist -0.14239244613250435 velocity 1.2898130294129961 next_car.velocity 0
+dist = ... 103.41859311293344 99.56098555906594 4
+crash at 51
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 0.7 	Throughput 73.0 	Hard Stops 4.0
+merge_interval 18.0
+prepares to merge
+crashed at dist -0.9671736021385584 velocity 1.070731343283582 next_car.velocity 1.7692812430385387
+dist = ... 205.71179654711517 202.67897014925373 4
+crash at 29
+commence merging
+crashed at dist -0.019949521195883335 velocity 0.7490124976563511 next_car.velocity 0
+dist = ... 297.4185931129335 293.43854263412936 4
+crash at 11
+crashed at dist -0.01994952119594018 velocity 0.7490124976563511 next_car.velocity 0
+dist = ... 152.4185931129334 148.43854263412933 4
+crash at 41
+crashed at dist -0.019949521195925968 velocity 0.7490124976563511 next_car.velocity 0
+dist = ... 72.41859311293344 68.43854263412936 4
+crash at 57
+crashed at dist -0.019949521195918862 velocity 0.7490124976563511 next_car.velocity 0
+dist = ... 17.41859311293342 13.438542634129337 4
+crash at 68
+crashed at dist -0.14239244613247592 velocity 1.2898130294129961 next_car.velocity 0
+dist = ... 293.4185931129335 289.56098555906595 4
+crash at 12
+crashed at dist -0.5702613517186137 velocity 4.143726226093516 next_car.velocity 0
+dist = ... 289.4185931129335 285.9888544646521 4
+crash at 13
+crashed at dist -0.14239244613253277 velocity 1.2898130294129961 next_car.velocity 0
+dist = ... 148.4185931129334 144.56098555906593 4
+crash at 42
+crashed at dist -0.5702613517186705 velocity 4.143726226093516 next_car.velocity 0
+dist = ... 144.4185931129334 140.98885446465206 4
+crash at 43
+crashed at dist -0.784378028817855 velocity 4.657154805794896 next_car.velocity 0
+dist = ... 285.4185931129335 282.20297114175133 4
+crash at 14
+crashed at dist -0.0653012287382353 velocity 6.061770805396924 next_car.velocity 0
+dist = ... 281.4185931129335 277.4838943416717 4
+crash at 15
+crashed at dist -0.7843780288179403 velocity 4.657154805794896 next_car.velocity 0
+dist = ... 140.4185931129334 137.20297114175133 4
+crash at 44
+crashed at dist -0.09765538981764621 velocity 5.161770805396924 next_car.velocity 0
+dist = ... 277.4185931129335 273.5162485027511 4
+crash at 16
+crashed at dist -0.5083914229794004 velocity 5.657725485602798 next_car.velocity 0
+dist = ... 273.4185931129335 269.9269845359129 4
+crash at 17
+crashed at dist -0.05485396445915569 velocity 1.9101303663478064 next_car.velocity 1.0716562629840278
+dist = ... 123.2015585459782 119.25641251043736 4
+crash at 47
+crashed at dist -0.22973261401358513 velocity 3.757154805794896 next_car.velocity 1.4746217484815767
+dist = ... 256.8446694888967 253.0744021029103 4
+crash at 20
+crashed at dist -0.1978486959456376 velocity 3.3325254284585495 next_car.velocity 0
+dist = ... 119.2015585459782 115.39940724192384 4
+crash at 48
+crashed at dist -0.6729487143967958 velocity 4.143726226093516 next_car.velocity 0
+dist = ... 115.2015585459782 111.874507260375 4
+crash at 49
+crashed at dist -0.07259453633153612 velocity 1.9571548057948962 next_car.velocity 0
+dist = ... 252.84466948889673 248.91726402522826 4
+crash at 21
+crashed at dist -0.09928948347157984 velocity 1.0020364346050854 next_car.velocity 0
+dist = ... 269.4185931129335 265.51788259640506 4
+crash at 18
+crashed at dist -0.26478640911132345 velocity 2.3437262260935166 next_car.velocity 0
+dist = ... 111.2015585459782 107.46634495508953 4
+crash at 50
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 252.84466948889673 248.96466948889673 4
+crash at 21
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 111.2015585459782 107.3215585459782 4
+crash at 50
+crashed at dist -0.24244292493658293 velocity 1.2898130294129961 next_car.velocity 0
+dist = ... 98.43854263412936 94.68098555906595 4
+crash at 52
+crashed at dist -0.3972344026933854 velocity 2.7213311639827733 next_car.velocity 0
+dist = ... 94.43854263412936 90.83577703682275 4
+crash at 53
+crashed at dist -0.23127283419789535 velocity 1.8213311639827734 next_car.velocity 0
+dist = ... 90.43854263412936 86.66981546832726 4
+crash at 54
+crashed at dist -0.12545616737602927 velocity 4.143726226093516 next_car.velocity 0
+dist = ... 86.43854263412936 82.56399880150539 4
+crash at 55
+crashed at dist -0.6176501886748866 velocity 3.2437262260935165 next_car.velocity 0
+dist = ... 82.43854263412936 79.05619282280425 4
+crash at 56
+crashed at dist -0.6176501886748866 velocity 3.2437262260935165 next_car.velocity 0
+dist = ... 78.43854263412936 75.05619282280425 4
+crash at 57
+crashed at dist -0.35454223635046134 velocity 4.657154805794896 next_car.velocity 0.9213311639827734
+dist = ... 61.20842890540087 57.56297114175133 4
+crash at 60
+crashed at dist -0.5574041586684189 velocity 2.857154805794896 next_car.velocity 0
+dist = ... 57.20842890540087 53.76583306406929 4
+crash at 61
+crashed at dist -0.037726266317861246 velocity 0.2951240639815754 next_car.velocity 0
+dist = ... 74.43854263412936 70.47626890044722 4
+crash at 58
+crashed at dist -0.11999999999999744 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 57.20842890540087 53.32842890540087 4
+crash at 61
+crashed at dist -0.265214507655827 velocity 1.8213311639827734 next_car.velocity 0
+dist = ... 44.6389481649485 40.90416267260433 4
+crash at 63
+crashed at dist -0.04847261265879865 velocity 5.557154805794896 next_car.velocity 0
+dist = ... 40.6389481649485 36.6874207776073 4
+crash at 64
+crashed at dist -0.3530495858638787 velocity 2.3437262260935166 next_car.velocity 0
+dist = ... 36.6389481649485 32.99199775081238 4
+crash at 65
+crashed at dist -0.13916731365611668 velocity 4.657154805794896 next_car.velocity 0
+dist = ... 32.6389481649485 28.77811547860462 4
+crash at 66
+crashed at dist -0.7340470508952492 velocity 3.757154805794896 next_car.velocity 0
+dist = ... 28.638948164948502 25.37299521584375 4
+crash at 67
+crashed at dist -0.7340470508952421 velocity 3.757154805794896 next_car.velocity 0
+dist = ... 24.638948164948502 21.372995215843744 4
+crash at 68
+crashed at dist -0.4010513010027523 velocity 2.8726025669889266 next_car.velocity 0
+dist = ... 20.638948164948502 17.039999465951254 4
+crash at 69
+crashed at dist -0.120000000000001 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 20.638948164948502 16.758948164948503 4
+crash at 69
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 0.8 	Throughput 73.0 	Hard Stops 41.0
+merge_interval 18.0
+prepares to merge
+commence merging
+crashed at dist -0.019949521195883335 velocity 0.7490124976563511 next_car.velocity 0
+dist = ... 262.4185931129335 258.43854263412936 4
+crash at 18
+crashed at dist -0.019949521195925968 velocity 0.7490124976563511 next_car.velocity 0
+dist = ... 92.41859311293344 88.43854263412936 4
+crash at 53
+crashed at dist -0.1423924461324475 velocity 1.2898130294129961 next_car.velocity 0
+dist = ... 258.4185931129335 254.56098555906593 4
+crash at 19
+crashed at dist -0.5702613517185853 velocity 4.143726226093516 next_car.velocity 0
+dist = ... 254.41859311293348 250.98885446465206 4
+crash at 20
+crashed at dist -0.14239244613250435 velocity 1.2898130294129961 next_car.velocity 0
+dist = ... 88.41859311293344 84.56098555906594 4
+crash at 54
+crashed at dist -0.5702613517186705 velocity 4.143726226093516 next_car.velocity 0
+dist = ... 84.41859311293344 80.9888544646521 4
+crash at 55
+crashed at dist -0.784378028817855 velocity 4.657154805794896 next_car.velocity 0
+dist = ... 250.41859311293348 247.20297114175133 4
+crash at 21
+crashed at dist -0.06530122873826372 velocity 6.061770805396924 next_car.velocity 0
+dist = ... 246.41859311293348 242.48389434167174 4
+crash at 22
+crashed at dist -0.7843780288179261 velocity 4.657154805794896 next_car.velocity 0
+dist = ... 80.41859311293344 77.20297114175136 4
+crash at 56
+crashed at dist -0.06530122873833477 velocity 6.061770805396924 next_car.velocity 0
+dist = ... 76.41859311293344 72.48389434167177 4
+crash at 57
+crashed at dist -0.09765538981764621 velocity 5.161770805396924 next_car.velocity 0
+dist = ... 242.41859311293348 238.51624850275113 4
+crash at 23
+crashed at dist -0.09765538981768884 velocity 5.161770805396924 next_car.velocity 0
+dist = ... 72.41859311293344 68.51624850275113 4
+crash at 58
+crashed at dist -0.508391422979372 velocity 5.657725485602798 next_car.velocity 0
+dist = ... 238.41859311293348 234.92698453591285 4
+crash at 24
+crashed at dist -0.5083914229794146 velocity 5.657725485602798 next_car.velocity 0
+dist = ... 68.41859311293344 64.92698453591285 4
+crash at 59
+crashed at dist -1.0149133301987945 velocity 6.145167510849914 next_car.velocity 0
+dist = ... 234.41859311293348 231.43350644313227 4
+crash at 25
+crashed at dist -0.29072842680332656 velocity 7.52424299387264 next_car.velocity 0
+dist = ... 230.41859311293348 226.7093215397368 4
+crash at 26
+crashed at dist -1.014913330198823 velocity 6.145167510849914 next_car.velocity 0
+dist = ... 64.41859311293344 61.43350644313226 4
+crash at 60
+crashed at dist -0.2907284268033692 velocity 7.52424299387264 next_car.velocity 0
+dist = ... 60.418593112933436 56.709321539736806 4
+crash at 61
+crashed at dist -0.6155770255778634 velocity 6.62424299387264 next_car.velocity 0
+dist = ... 226.41859311293348 223.03417013851134 4
+crash at 27
+crashed at dist -0.615577025577899 velocity 6.62424299387264 next_car.velocity 0
+dist = ... 56.418593112933436 53.034170138511335 4
+crash at 62
+crashed at dist -1.3087666426034517 velocity 7.095095539500199 next_car.velocity 0
+dist = ... 52.418593112933436 49.72735975553689 4
+crash at 63
+crashed at dist -0.5813207922439858 velocity 8.457866287702808 next_car.velocity 0
+dist = ... 48.418593112933436 44.99991390517742 4
+crash at 64
+crashed at dist -1.0928940497845474 velocity 7.557866287702808 next_car.velocity 0
+dist = ... 44.418593112933436 41.511487162717984 4
+crash at 65
+crashed at dist -0.3638595834237819 velocity 8.912693955898954 next_car.velocity 0
+dist = ... 40.418593112933436 36.78245269635722 4
+crash at 66
+crashed at dist -0.9663983746035711 velocity 8.012693955898953 next_car.velocity 0
+dist = ... 36.418593112933436 33.38499148753701 4
+crash at 67
+crashed at dist -0.2358025595310842 velocity 9.35971488053651 next_car.velocity 0
+dist = ... 32.418593112933436 28.65439567246452 4
+crash at 68
+crashed at dist -0.10076901571187591 velocity 1.4368358288017116 next_car.velocity 0
+dist = ... 222.41859311293348 218.51936212864535 4
+crash at 28
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 222.41859311293348 218.53859311293348 4
+crash at 28
+crashed at dist -0.31398171382366513 velocity 1.8213311639827734 next_car.velocity 0
+dist = ... 209.47018095878067 205.78416267260434 4
+crash at 30
+crashed at dist -0.852790182970665 velocity 4.657154805794896 next_car.velocity 0
+dist = ... 205.47018095878067 202.32297114175134 4
+crash at 31
+crashed at dist -0.14867077998559353 velocity 4.657154805794896 next_car.velocity 0
+dist = ... 201.47018095878067 197.61885173876627 4
+crash at 32
+crashed at dist -0.14798868715278957 velocity 1.116400595238428 next_car.velocity 0
+dist = ... 28.418593112933436 24.566581800086226 4
+crash at 69
+crashed at dist -0.3698739398525106 velocity 3.757154805794896 next_car.velocity 0
+dist = ... 197.47018095878067 193.84005489863318 4
+crash at 33
+crashed at dist -0.05936548098290473 velocity 3.757154805794896 next_car.velocity 0
+dist = ... 193.47018095878067 189.52954643976358 4
+crash at 34
+crashed at dist -0.47424521822199495 velocity 2.857154805794896 next_car.velocity 0
+dist = ... 189.47018095878067 185.94442617700267 4
+crash at 35
+crashed at dist -0.014916154663296766 velocity 1.9571548057948962 next_car.velocity 0
+dist = ... 185.47018095878067 181.48509711344397 4
+crash at 36
+crashed at dist -0.24115830244295466 velocity 5.161770805396924 next_car.velocity 1.4437262260935166
+dist = ... 172.39509020030818 168.63624850275113 4
+crash at 38
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 185.47018095878067 181.59018095878068 4
+crash at 36
+crashed at dist -0.38939306053725886 velocity 4.261770805396924 next_car.velocity 0
+dist = ... 168.39509020030818 164.78448326084543 4
+crash at 39
+crashed at dist -0.5315194203245994 velocity 3.3617708053969237 next_car.velocity 0
+dist = ... 164.39509020030818 160.92660962063277 4
+crash at 40
+crashed at dist -0.1070386724579464 velocity 5.657725485602798 next_car.velocity 0
+dist = ... 160.39509020030818 156.50212887276612 4
+crash at 41
+crashed at dist -0.902032545658642 velocity 4.757725485602798 next_car.velocity 0
+dist = ... 156.39509020030818 153.29712274596682 4
+crash at 42
+crashed at dist -0.051272520940955246 velocity 4.757725485602798 next_car.velocity 0
+dist = ... 152.39509020030818 148.44636272124913 4
+crash at 43
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 152.39509020030818 148.51509020030818 4
+crash at 43
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 152.39509020030818 148.51509020030818 4
+crash at 43
+crashed at dist -0.645853812890806 velocity 5.72424299387264 next_car.velocity 2.057725485602798
+dist = ... 142.6531649243951 139.2990187372859 4
+crash at 45
+crashed at dist -0.4907024116653247 velocity 4.824242993872639 next_car.velocity 0
+dist = ... 138.6531649243951 135.14386733606042 4
+crash at 46
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 138.6531649243951 134.7731649243951 4
+crash at 46
+crashed at dist -0.12000000000000455 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 138.6531649243951 134.7731649243951 4
+crash at 46
+crashed at dist -0.6458538128907634 velocity 5.72424299387264 next_car.velocity 2.057725485602798
+dist = ... 127.65316492439514 124.2990187372859 4
+crash at 48
+crashed at dist -0.49007542815671457 velocity 7.095095539500199 next_car.velocity 0
+dist = ... 123.65316492439514 120.14324035255186 4
+crash at 49
+crashed at dist -1.1988667347646924 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 119.65316492439514 116.85203165915983 4
+crash at 50
+crashed at dist -0.8883582758950865 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 115.65316492439514 112.54152320029023 4
+crash at 51
+crashed at dist -0.7318070519752382 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 111.65316492439514 108.38497197637038 4
+crash at 52
+crashed at dist -0.7318070519752382 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 107.65316492439514 104.38497197637038 4
+crash at 53
+crashed at dist -0.7318070519752382 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 103.65316492439514 100.38497197637038 4
+crash at 54
+crashed at dist -0.7318070519752382 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 99.65316492439514 96.38497197637038 4
+crash at 55
+crashed at dist -0.7318070519752382 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 95.65316492439514 92.38497197637038 4
+crash at 56
+crashed at dist -0.7318070519752382 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 91.65316492439514 88.38497197637038 4
+crash at 57
+crashed at dist -0.7318070519752382 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 87.65316492439514 84.38497197637038 4
+crash at 58
+prepares to merge
+crashed at dist -0.7318070519752382 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 83.65316492439514 80.38497197637038 4
+crash at 60
+commence merging
+crashed at dist -0.7318070519752098 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 79.65316492439514 76.38497197637035 4
+crash at 61
+crashed at dist -0.7318070519752098 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 75.65316492439514 72.38497197637035 4
+crash at 62
+crashed at dist -0.7318070519752098 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 71.65316492439514 68.38497197637035 4
+crash at 63
+crashed at dist -0.731807051975224 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 67.65316492439514 64.38497197637037 4
+crash at 64
+crashed at dist -0.731807051975224 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 63.65316492439514 60.384971976370366 4
+crash at 65
+crashed at dist -0.731807051975224 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 59.65316492439514 56.384971976370366 4
+crash at 66
+crashed at dist -0.731807051975224 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 55.65316492439514 52.384971976370366 4
+crash at 67
+crashed at dist -0.731807051975224 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 51.65316492439514 48.384971976370366 4
+crash at 68
+crashed at dist -0.7318070519752382 velocity 6.1950955395001985 next_car.velocity 0
+dist = ... 47.65316492439514 44.38497197637038 4
+crash at 69
+crashed at dist -0.1467123708723932 velocity 2.216134116617125 next_car.velocity 0
+dist = ... 43.65316492439514 39.799877295267535 4
+crash at 70
+crashed at dist -0.11999999999999744 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 43.65316492439514 39.77316492439514 4
+crash at 70
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 0.9 	Throughput 73.0 	Hard Stops 72.0
+merge_interval 18.0
+prepares to merge
+crashed at dist -1.0271736021385607 velocity 1.070731343283582 next_car.velocity 1.7692812430385387
+dist = ... 200.71179654711517 197.73897014925373 4
+crash at 30
+crashed at dist -2.5282034528848385 velocity 0.6000000000000001 next_car.velocity 0
+dist = ... 196.71179654711517 195.24 4
+crash at 31
+crashed at dist -1.6461437513922874 velocity 1.1897014925373135 next_car.velocity 0
+dist = ... 192.71179654711517 190.35794029850746 4
+crash at 32
+crashed at dist -0.6461437513922874 velocity 1.1897014925373135 next_car.velocity 0
+dist = ... 188.71179654711517 185.35794029850746 4
+crash at 33
+commence merging
+crashed at dist -0.01994952119594018 velocity 0.7490124976563511 next_car.velocity 0
+dist = ... 167.4185931129334 163.43854263412933 4
+crash at 38
+crashed at dist -0.14239244613253277 velocity 1.2898130294129961 next_car.velocity 0
+dist = ... 163.4185931129334 159.56098555906593 4
+crash at 39
+crashed at dist -0.5702613517186705 velocity 4.143726226093516 next_car.velocity 0
+dist = ... 159.4185931129334 155.98885446465206 4
+crash at 40
+crashed at dist -0.7843780288179403 velocity 4.657154805794896 next_car.velocity 0
+dist = ... 155.4185931129334 152.20297114175133 4
+crash at 41
+crashed at dist -0.06530122873834898 velocity 6.061770805396924 next_car.velocity 0
+dist = ... 151.4185931129334 147.48389434167174 4
+crash at 42
+crashed at dist -0.09765538981773147 velocity 5.161770805396924 next_car.velocity 0
+dist = ... 147.4185931129334 143.51624850275113 4
+crash at 43
+crashed at dist -0.5083914229794573 velocity 5.657725485602798 next_car.velocity 0
+dist = ... 143.4185931129334 139.92698453591285 4
+crash at 44
+crashed at dist -1.0149133301989082 velocity 6.145167510849914 next_car.velocity 0
+dist = ... 139.4185931129334 136.4335064431323 4
+crash at 45
+crashed at dist -0.29072842680344024 velocity 7.52424299387264 next_car.velocity 0
+dist = ... 135.4185931129334 131.70932153973683 4
+crash at 46
+crashed at dist -0.6155770255779771 velocity 6.62424299387264 next_car.velocity 0
+dist = ... 131.4185931129334 128.03417013851137 4
+crash at 47
+crashed at dist -1.3087666426035298 velocity 7.095095539500199 next_car.velocity 0
+dist = ... 127.4185931129334 124.72735975553692 4
+crash at 48
+crashed at dist -0.5813207922440569 velocity 8.457866287702808 next_car.velocity 0
+dist = ... 123.4185931129334 119.99991390517745 4
+crash at 49
+crashed at dist -1.0928940497846185 velocity 7.557866287702808 next_car.velocity 0
+dist = ... 119.4185931129334 116.51148716271801 4
+crash at 50
+crashed at dist -0.36385958342384583 velocity 8.912693955898954 next_car.velocity 0
+dist = ... 115.4185931129334 111.78245269635724 4
+crash at 51
+crashed at dist -0.9663983746036422 velocity 8.012693955898953 next_car.velocity 0
+dist = ... 111.4185931129334 108.38499148753704 4
+crash at 52
+crashed at dist -0.2358025595311517 velocity 9.35971488053651 next_car.velocity 0
+dist = ... 107.4185931129334 103.65439567246455 4
+crash at 53
+crashed at dist -0.9277455356384507 velocity 8.45971488053651 next_car.velocity 0
+dist = ... 103.4185931129334 100.34633864857184 4
+crash at 54
+crashed at dist -0.19561517112317972 velocity 9.799063057960137 next_car.velocity 0
+dist = ... 99.4185931129334 95.61420828405657 4
+crash at 55
+crashed at dist -0.9754277827152009 velocity 8.899063057960136 next_car.velocity 0
+dist = ... 95.4185931129334 92.3940208956486 4
+crash at 56
+crashed at dist -0.24178920803862525 velocity 10.230870184577238 next_car.velocity 0
+dist = ... 91.4185931129334 87.66038232097202 4
+crash at 57
+crashed at dist -1.1079632449540497 velocity 9.330870184577238 next_car.velocity 0
+dist = ... 87.4185931129334 84.52655635788744 4
+crash at 58
+crashed at dist -0.37284234730547894 velocity 10.655265696334494 next_car.velocity 0
+dist = ... 83.4185931129334 79.79143546023887 4
+crash at 59
+crashed at dist -1.3238954865723827 velocity 9.755265696334494 next_car.velocity 0
+dist = ... 79.4185931129334 76.74248859950578 4
+crash at 60
+crashed at dist -0.5873177088088255 velocity 11.072376807516813 next_car.velocity 0
+dist = ... 75.4185931129334 72.00591082174222 4
+crash at 61
+crashed at dist -1.6217930703122079 velocity 10.172376807516812 next_car.velocity 0
+dist = ... 71.4185931129334 69.0403861832456 4
+crash at 62
+crashed at dist -0.8837834185848976 velocity 11.48232854888033 next_car.velocity 0
+dist = ... 67.4185931129334 64.30237653151829 4
+crash at 63
+crashed at dist -2.000249128360977 velocity 10.58232854888033 next_car.velocity 0
+dist = ... 63.418593112933394 61.41884224129437 4
+crash at 64
+crashed at dist -1.2608321796110928 velocity 11.885243805130893 next_car.velocity 0
+dist = ... 59.418593112933394 56.67942529254449 4
+crash at 65
+crashed at dist -0.26083217961109995 velocity 11.885243805130893 next_car.velocity 0
+dist = ... 55.418593112933394 51.679425292544494 4
+crash at 66
+crashed at dist -1.4578809406372812 velocity 10.985243805130892 next_car.velocity 0
+dist = ... 51.418593112933394 48.876474053570675 4
+crash at 67
+crashed at dist -0.7170808499629544 velocity 12.281243351759244 next_car.velocity 0
+dist = ... 47.418593112933394 44.13567396289635 4
+crash at 68
+crashed at dist -1.993329520314802 velocity 11.381243351759244 next_car.velocity 0
+dist = ... 43.418593112933394 41.411922633248196 4
+crash at 69
+crashed at dist -1.251170028211746 velocity 12.670445891243974 next_car.velocity 0
+dist = ... 39.418593112933394 36.66976314114514 4
+crash at 70
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+prepares to merge
+commence merging
+AV_percentage 1.0 	Throughput 73.0 	Hard Stops 37.0
